@@ -6,7 +6,7 @@ export default function PokeList({ poke }) {
     <div>
       <div className="poke-container">
         <ul>
-          {poke.results.map((item) => (
+          {poke.map((item) => (
             <div key={item.id} className="poke-card">
               <li>{item.pokemon}</li>
               <img className="image" src={item.url_image} />

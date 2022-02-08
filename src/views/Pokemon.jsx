@@ -12,17 +12,17 @@ export default function Pokemon() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchPokemon(query);
-      setPoke(data);
+      setPoke(data.results);
       setLoading(false);
     };
-    fetchData();
-  }, [query]);
+    if (loading) {
+      fetchData();
+    }
+  }, [query, loading]);
 
-  if (loading) {
-    return <h2>Loading</h2>;
-  }
   return (
     <div>
+      <h1>Pokedex</h1>
       <UserControl setLoading={setLoading} query={query} setQuery={setQuery} />
       <PokeList poke={poke} />
     </div>

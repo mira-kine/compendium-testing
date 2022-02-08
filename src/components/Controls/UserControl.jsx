@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function UserControl({ query, setQuery }) {
+export default function UserControl({ query, setQuery, setLoading }) {
   return (
     <div>
       <label>Search: </label>
@@ -13,8 +13,8 @@ export default function UserControl({ query, setQuery }) {
       />
       <button
         className="search-button"
-        onClick={(e) => {
-          setQuery(e.target.value);
+        onClick={() => {
+          setLoading(true);
         }}
       >
         Go!
